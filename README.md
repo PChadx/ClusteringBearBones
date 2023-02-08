@@ -25,6 +25,6 @@ A lot more information on this to explore here: `https://github.com/Unitech/pm2`
 
 MIT — use for any legal purpose.
 
-# Special Thanks ❤️
+# Special Thanks ❤️ 
 
 To the guys and gals @Unitech for building PM2, a really awesome production process manager for Node.js 
