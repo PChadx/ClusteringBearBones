@@ -1,5 +1,6 @@
 const express = require('express');
 const cluster = require('cluster');
+const os = require('os');
 
 const app = express();
 
@@ -30,9 +31,17 @@ app.get('/timer', (req, res) => {
 if (cluster.isMaster) {
     //master controls workers
     console.log(`Master is running  | Process id: ${process.pid}`);
-    cluster.fork();
-    cluster.fork();
-    //let's spawn 2 workers 
+    
+    //let's take the number of logical cores of the CPU
+    // we need 1 worker / logical core
+    const NUM_WORKERS= os.cpus().length;
+    
+    //let's spawn n workers, where n === NUM_WORKERS 
+    for (let i = 0; i< NUM_WORKERS; i++) {
+        
+        cluster.fork();
+    
+    }
 } else {
     //we do work here
     console.log(`Worker has been started | Process id: ${process.pid}`)

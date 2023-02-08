@@ -1,5 +1,5 @@
 # Clustering Bear :) Bones 
-Testing clustering
+Testing clustering, using Round Robin static load balancing technique 
 
 ## Installation
 
