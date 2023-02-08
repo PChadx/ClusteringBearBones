@@ -30,8 +30,8 @@ app.get('/timer', (req, res) => {
 if (cluster.isMaster) {
     //master controls workers
     console.log(`Master is running  | Process id: ${process.pid}`);
-    fork();
-    fork();
+    cluster.fork();
+    cluster.fork();
     //let's spawn 2 workers 
 } else {
     //we do work here
