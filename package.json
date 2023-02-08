@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/PChadx/ClusteringBearBones#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "pm2": "^5.2.2",
+    "uuid": "^7.0.3"
   }
 }
