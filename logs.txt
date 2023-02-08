@@ -1,0 +1,7 @@
+Worker has been started | Process id: 6120
+Worker has been started | Process id: 14012
+Worker has been started | Process id: 2004
+Worker has been started | Process id: 5444
+Worker has been started | Process id: 6688
+Worker has been started | Process id: 12432
+Worker has been started | Process id: 9176
