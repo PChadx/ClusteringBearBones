@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cluster = require('cluster');
 
 const app = express();
 
@@ -8,12 +8,11 @@ function delay(duration) {
     while (Date.now() - startTime <  duration  ) {
         // do nothing just wait.
         // this goes directly in the event loop blocking everything
-        //testing blocking requests
     }
 }
 
 app.get('/',(req, res) => {
-    res.send('Performance example');
+    res.send(`Performance example  | Process id: ${process.pid}`);
 });
 //JSON stringify
 //[].sort
@@ -25,8 +24,17 @@ app.get('/',(req, res) => {
 
 app.get('/timer', (req, res) => {
     delay(9000);
-    res.send('Ding Ding Ding');
+    res.send(`Ding Ding Ding | Process id: ${process.pid}`);
 });
 
-
-app.listen(3000);
+if (cluster.isMaster) {
+    //master controls workers
+    console.log(`Master is running  | Process id: ${process.pid}`);
+    fork();
+    fork();
+    //let's spawn 2 workers 
+} else {
+    //we do work here
+    console.log(`Worker has been started | Process id: ${process.pid}`)
+    app.listen(3000);
+}
